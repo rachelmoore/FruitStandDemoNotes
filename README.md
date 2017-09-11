@@ -126,5 +126,5 @@ store.getState()                // ["Apple", "Orange"]
 * React components are made up of two layers: 
 
 
-
+![Redux diagram](https://github.com/rachelmoore/ReduxNotes/blob/master/Redux2.png "Redux 2")
 
