@@ -123,8 +123,17 @@ store.getState()                // ["Apple", "Orange"]
 
 ### Connecting the Redux cycle with React components
 
-* React components are made up of two layers: 
-
-
+* React components are made up of two layers: Container components and Presentational components. 
+* Container components do the talking. They interact with Redux pieces and talk to action creators and the store. 
+* Presentational components describe how our components should look. Presentational components should rarely have more than a render function. We can often make these function components that don't need to be classes. 
+* Container components talk to the store and we connect these components via the Redux/React `connect()` function from the redux-react library. This function allows us to bind components to different parts of the application state. 
+* The container components will be responsible for taking the application state and turning them into props. The container component will generate props that are passed to the presentational component. Then the presentational layer takes these props to render itself. 
+* In addition to generating props from the state, the container component will also generate props that trigger action creators or trigger dispatches. 
+* Props are made of: 1) pieces of the state, or 2) event handlers. 
+* Relevant state information in the fruit stand demo: the list of fruits from the store's application state. Turn this state information (list of fruits) into props that the presentational component can then render. 
+* Event handlers in the fruit stand demo: click handlers. Maybe `onApple(e)` triggers a dispatch to update the store. 
+* Connecting Redux with React diagram: 
 ![Redux diagram](https://github.com/rachelmoore/ReduxNotes/blob/master/Redux2.png "Redux 2")
 
+### Build React component 
+* The next step is to build the React component that is going that is going to take the information 
