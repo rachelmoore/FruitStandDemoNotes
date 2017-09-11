@@ -40,7 +40,7 @@ export default reducer;
 ```
 
 * To test, add this reducer to a redux store. Do this by creating a store object in store.js:
-```
+```javascript 
 import { createStore } from 'redux';
 import reducer from './reducer.js';
 
@@ -50,7 +50,7 @@ export default Store;
 ```
 
 * Then import store and add store to window in entry.js. The entry.js file now looks like this: 
-```
+```javascript 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import store from './store';
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
 ```
 
 * Finally, in the console, we can manually test that `store.dispatch()` is working: 
-```
+```javascript 
 window.store
 store.getState()                                            // [] (default application state)
 store.dispatch({ type: "ADD_FRUIT", fruit: "Apple" })     
@@ -87,7 +87,7 @@ store.getState()                                            // []
 
 * User action creators(functions) to create things like the fruits without having to manually type the action in. 
 * In frontend/actions.js: 
-``` 
+```javascript 
 export const ADD_FRUIT = "ADD_FRUIT";
 export const CLEAR = "CLEAR";
 
@@ -107,14 +107,14 @@ export const clearFruit = () => ({
 ```
 * Note that constants `ADD_FRUIT` and `CLEAR` were created on the first two lines to replace the type's string version with a constant.
 * Now we need to add some code to actions.js for testing purposes. Add these three lines under `window.store = store`:
-```
+```javascript 
 window.addOrange = addOrange;
 window.addApple = addApple;
 window.clearFruit = clearFruit;
 ```
 * It is also necessary to add `import { addOrange, addApple, clearFruit } from './actions';` under the `import store` line.
 * In the console,  we can now test: 
-```
+```javascript 
 store.dispatch(addApple())
 store.dispatch(addOrange())
 store.getState()                // ["Apple", "Orange"]
